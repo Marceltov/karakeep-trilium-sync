@@ -1,6 +1,6 @@
 site_name: karakeep-trilium-sync
 site_description: Copy Karakeep bookmarks into Trilium notes.
-site_url: https://marceltov.github.io/karakeep-trilium-sync/
+site_url: https://karakeep-trilium-sync.marceltov.de/
 repo_url: https://github.com/Marceltov/karakeep-trilium-sync
 repo_name: Marceltov/karakeep-trilium-sync
 edit_uri: edit/main/docs/
@@ -8,6 +8,7 @@ copyright: Copyright &copy; 2026 Marcel Bruckner. Licensed under <a href="https:
 
 nav:
   - Home: index.md
+  - Why I built this: why.md
   - Getting started: getting-started.md
   - Configuration: configuration.md
   - What gets imported: what-gets-imported.md

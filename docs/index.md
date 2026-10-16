@@ -55,4 +55,4 @@ flowchart LR
 
 !!! tip "Keeping an LLM wiki in Trilium?"
 
-    The sync can feed a wiki's raw sources: point it at the *Sources* note and sort by year, see [the example](configuration.md#an-llm-wikis-sources). The [LLM wiki skill](https://trilium-plugin.marceltov.de/skills/#knowledge-base) of [trilium-plugin](https://trilium-plugin.marceltov.de/) sets up such a wiki and ingests the imported sources into it.
+    The sync can feed a wiki's raw sources: point it at the *Sources* note and sort by year, see [the example](configuration.md#an-llm-wikis-sources). The [LLM wiki skill](https://trilium-plugin.marceltov.de/skills/#knowledge-base) of [trilium-plugin](https://trilium-plugin.marceltov.de/) sets up such a wiki and ingests the imported sources into it. [Why I built this](why.md) shows the whole setup.

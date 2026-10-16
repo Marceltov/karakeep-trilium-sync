@@ -6,7 +6,7 @@ Copies bookmarks from [Karakeep](https://karakeep.app) into [Trilium](https://tr
 
 It's one small container that polls both REST APIs. It needs a Karakeep API key and a Trilium ETAPI token, and no public endpoint.
 
-**Documentation: https://marceltov.github.io/karakeep-trilium-sync/**
+**Documentation: https://karakeep-trilium-sync.marceltov.de/**
 
 ```yaml
 services:
@@ -22,9 +22,9 @@ services:
       TRILIUM_PARENT_NOTE: abc123XYZ   # the note to put bookmarks under
 ```
 
-- [Getting started](https://marceltov.github.io/karakeep-trilium-sync/getting-started/): from API keys to the first imported bookmark
-- [Configuration](https://marceltov.github.io/karakeep-trilium-sync/configuration/): every setting, folders, labels and examples
-- [Reddit](https://marceltov.github.io/karakeep-trilium-sync/reddit/): importing Reddit posts despite Reddit's login wall
+- [Getting started](https://karakeep-trilium-sync.marceltov.de/getting-started/): from API keys to the first imported bookmark
+- [Configuration](https://karakeep-trilium-sync.marceltov.de/configuration/): every setting, folders, labels and examples
+- [Reddit](https://karakeep-trilium-sync.marceltov.de/reddit/): importing Reddit posts despite Reddit's login wall
 
 ## License
 
