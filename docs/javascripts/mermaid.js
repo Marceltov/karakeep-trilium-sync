@@ -21,15 +21,13 @@ const extraCSS = `
   .cluster .nodeLabel, .cluster-label span {
     color: var(--md-mermaid-sequence-box-fg-color) !important;
   }
-  /* Edge labels sit beside the arrow, above it, instead of on top of it. */
-  .edgeLabel foreignObject { overflow: visible; }
+  /* Edge labels sit above the arrow instead of on it. Mermaid centres the
+     label box on the line, so empty space below the text lifts it clear.
+     (Moving it with position/transform breaks in Safari's foreignObject.) */
   .edgeLabel span.edgeLabel, .edgeLabel .labelBkg, .edgeLabel p {
     background: transparent !important;
   }
-  .edgeLabel span.edgeLabel, .edgeLabel .labelBkg {
-    position: relative;
-    top: -0.85em;
-  }
+  .edgeLabel .labelBkg { padding-bottom: 1.6em; }
   .edgeLabel rect { fill: transparent !important; }
   /* Icon nodes (img shapes): just the icon and its caption, no box. */
   .image-shape rect, .image-shape path {
