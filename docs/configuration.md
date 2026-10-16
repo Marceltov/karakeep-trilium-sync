@@ -92,7 +92,7 @@ TRILIUM_PARENT_NOTE: abc123XYZ
 
 ### An LLM wiki's sources
 
-For an [LLM wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) whose raw sources live under a note labelled `#llmWikiPart=sources`, in one folder per year:
+For an [LLM wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), as set up by the [LLM wiki skill](https://trilium-plugin.marceltov.de/skills/#knowledge-base) of [trilium-plugin](https://trilium-plugin.marceltov.de/), whose raw sources live under a note labelled `#llmWikiPart=sources`, in one folder per year:
 
 ```yaml
 TRILIUM_PARENT_SEARCH: "#llmWikiPart=sources"
@@ -100,4 +100,4 @@ TRILIUM_FOLDER: "%Y"
 TRILIUM_FOLDER_LABELS: '#wikiSourceGroup={name} #iconClass="bx bx-folder"'
 ```
 
-The wiki's ingest then picks the notes up like any other source. The `#sourceUrl`, `#fetchedOn` and `#fetchedVia` labels the sync sets tell it where the text came from, and a note without `#fetchedVia` is a link-only source that ingest fetches itself.
+The skill's ingest then picks the notes up like any other source. The `#sourceUrl`, `#fetchedOn` and `#fetchedVia` labels the sync sets tell it where the text came from, and a note without `#fetchedVia` is a link-only source that ingest fetches itself.

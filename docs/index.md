@@ -45,13 +45,13 @@ flowchart LR
   you["You<br>browser extension, phone"]
   reddit["Reddit<br>feeds"]
   subgraph host["Docker host"]
-    karakeep["Karakeep<br>/api/v1"]
+    karakeep["Karakeep"]
     sync["karakeep-trilium-sync"]
-    trilium["Trilium<br>/etapi"]
+    trilium["Trilium"]
   end
   you -- "save + tag" --> karakeep
-  sync -- "tagged bookmarks,<br>done tag" --> karakeep
-  sync -. "Reddit posts" .-> reddit
+  karakeep -- "tagged bookmarks" --> sync
+  reddit -. "Reddit posts" .-> sync
   sync -- "new notes" --> trilium
   classDef accent fill:#ddd3fd,stroke:#6d28d9,color:#18162f,stroke-width:1.5px
   class sync accent
@@ -59,4 +59,4 @@ flowchart LR
 
 !!! tip "Keeping an LLM wiki in Trilium?"
 
-    The sync can feed a wiki's raw sources: point it at the *Sources* note and sort by year. See [the example](configuration.md#an-llm-wikis-sources).
+    The sync can feed a wiki's raw sources: point it at the *Sources* note and sort by year, see [the example](configuration.md#an-llm-wikis-sources). The [LLM wiki skill](https://trilium-plugin.marceltov.de/skills/#knowledge-base) of [trilium-plugin](https://trilium-plugin.marceltov.de/) sets up such a wiki and ingests the imported sources into it.
