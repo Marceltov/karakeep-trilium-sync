@@ -6,6 +6,8 @@ It's one small container that polls both REST APIs. It needs a Karakeep API key 
 
 ## Quick start
 
+Step by step, with Reddit and troubleshooting: **[docs/setup.md](docs/setup.md)**.
+
 ```yaml
 services:
   karakeep-trilium-sync:
