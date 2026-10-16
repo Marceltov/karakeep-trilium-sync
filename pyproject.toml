@@ -1,0 +1,22 @@
+[project]
+name = "karakeep-trilium-sync"
+version = "0.1.0"
+description = "Copy Karakeep bookmarks into Trilium notes"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28.1",
+]
+
+[tool.uv]
+# Single-module app; install only the dependencies (no build backend needed).
+package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
