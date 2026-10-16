@@ -21,6 +21,16 @@ const extraCSS = `
   .cluster .nodeLabel, .cluster-label span {
     color: var(--md-mermaid-sequence-box-fg-color) !important;
   }
+  /* Edge labels sit beside the arrow, above it, instead of on top of it. */
+  .edgeLabel foreignObject { overflow: visible; }
+  .edgeLabel span.edgeLabel, .edgeLabel .labelBkg, .edgeLabel p {
+    background: transparent !important;
+  }
+  .edgeLabel span.edgeLabel, .edgeLabel .labelBkg {
+    position: relative;
+    top: -0.85em;
+  }
+  .edgeLabel rect { fill: transparent !important; }
   /* Icon nodes (img shapes): just the icon and its caption, no box. */
   .image-shape rect, .image-shape path {
     fill: none !important;
