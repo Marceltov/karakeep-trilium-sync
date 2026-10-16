@@ -41,16 +41,23 @@ karakeep-trilium-sync:
 - **Talks to the APIs only.** It polls Karakeep's REST API and writes through Trilium's ETAPI, so the three can run on different hosts. It needs no MCP, no OAuth and no public endpoint.
 
 ```mermaid
+---
+config:
+  flowchart:
+    curve: linear
+---
 flowchart LR
-  you@{ img: "icons/you.svg", label: "You<br>browser, phone", pos: "b", w: 48, h: 48, constraint: "on" }
-  karakeep@{ img: "icons/karakeep.svg", label: "Karakeep", pos: "b", w: 48, h: 48, constraint: "on" }
-  reddit@{ img: "icons/reddit.svg", label: "Reddit feeds", pos: "b", w: 48, h: 48, constraint: "on" }
-  sync@{ img: "logo.svg", label: "karakeep-trilium-sync", pos: "b", w: 64, h: 64, constraint: "on" }
-  trilium@{ img: "icons/trilium.svg", label: "Trilium", pos: "b", w: 48, h: 48, constraint: "on" }
+  you["<img src='icons/you.svg' width='40' height='40'><br>You<br>browser, phone"]
+  karakeep["<img src='icons/karakeep.svg' width='40' height='40'><br>Karakeep"]
+  reddit["<img src='icons/reddit.svg' width='40' height='40'><br>Reddit feeds"]
+  sync["<img src='logo.svg' width='48' height='48'><br>karakeep-trilium-sync"]
+  trilium["<img src='icons/trilium.svg' width='40' height='40'><br>Trilium"]
   you -- "save + tag" --> karakeep
   karakeep -- "tagged bookmarks" --> sync
   reddit -. "Reddit posts" .-> sync
   sync -- "new notes" --> trilium
+  classDef accent fill:#6d28d91f,stroke:#8b5cf6,stroke-width:1.5px
+  class sync accent
 ```
 
 !!! tip "Keeping an LLM wiki in Trilium?"

@@ -12,7 +12,6 @@ const extraCSS = `
     stroke: var(--md-mermaid-sequence-actor-border-color) !important;
   }
   .node rect { rx: 6px; ry: 6px; }
-  .accent .nodeLabel, .accent .nodeLabel p { color: #18162f !important; }
   .cluster rect {
     fill: var(--md-mermaid-sequence-box-bg-color) !important;
     stroke: none !important;

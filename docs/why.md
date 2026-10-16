@@ -13,20 +13,27 @@ So instead of connecting Claude to Karakeep, this sync copies the bookmarks into
 ## My setup
 
 ```mermaid
+---
+config:
+  flowchart:
+    curve: linear
+---
 flowchart LR
-  you@{ img: "../icons/you.svg", label: "Me<br>browser, phone", pos: "b", w: 48, h: 48, constraint: "on" }
-  reddit@{ img: "../icons/reddit.svg", label: "Reddit saves", pos: "b", w: 48, h: 48, constraint: "on" }
-  karakeep@{ img: "../icons/karakeep.svg", label: "Karakeep", pos: "b", w: 48, h: 48, constraint: "on" }
-  sync@{ img: "../logo.svg", label: "karakeep-trilium-sync", pos: "b", w: 64, h: 64, constraint: "on" }
-  trilium@{ img: "../icons/trilium.svg", label: "Trilium<br>Sources / 2026", pos: "b", w: 48, h: 48, constraint: "on" }
-  mcp@{ img: "../icons/mcp.svg", label: "trilium-mcp", pos: "b", w: 48, h: 48, constraint: "on" }
-  claude@{ img: "../icons/claude.svg", label: "Claude<br>with trilium-plugin", pos: "b", w: 48, h: 48, constraint: "on" }
+  you["<img src='../icons/you.svg' width='40' height='40'><br>Me<br>browser, phone"]
+  reddit["<img src='../icons/reddit.svg' width='40' height='40'><br>Reddit saves"]
+  karakeep["<img src='../icons/karakeep.svg' width='40' height='40'><br>Karakeep"]
+  sync["<img src='../logo.svg' width='48' height='48'><br>karakeep-trilium-sync"]
+  trilium["<img src='../icons/trilium.svg' width='40' height='40'><br>Trilium<br>Sources / 2026"]
+  mcp["<img src='../icons/mcp.svg' width='40' height='40'><br>trilium-mcp"]
+  claude["<img src='../icons/claude.svg' width='40' height='40'><br>Claude<br>with trilium-plugin"]
   you -- "save + tag" --> karakeep
   reddit -. "RSS + rule" .-> karakeep
   karakeep -- "tagged bookmarks" --> sync
   sync -- "source notes" --> trilium
   claude -- "ingest" --> mcp
   mcp --> trilium
+  classDef accent fill:#6d28d91f,stroke:#8b5cf6,stroke-width:1.5px
+  class sync accent
 ```
 
 - **Trilium** runs in Docker at home, with the wiki in my own instance. Its rulebook is a schema note, and its raw material lives under *Sources*, in one folder per year.
