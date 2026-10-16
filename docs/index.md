@@ -38,23 +38,19 @@ karakeep-trilium-sync:
 - **Goes where you want it.** Pick the parent note by ID or by a label search, sort notes into dated folders like `2026/10`, and add your own labels to every note.
 - **Never imports twice.** Each note carries a `#karakeepId` label, so a bookmark is imported once even if a run fails halfway.
 - **Reddit works.** Reddit shows crawlers a login page instead of the post, so the sync gets Reddit posts from Reddit's own feeds. See [Reddit](reddit.md).
-- **Talks to the APIs only.** It polls Karakeep's REST API and writes through Trilium's ETAPI. It needs no MCP, no OAuth and no public endpoint.
+- **Talks to the APIs only.** It polls Karakeep's REST API and writes through Trilium's ETAPI, so the three can run on different hosts. It needs no MCP, no OAuth and no public endpoint.
 
 ```mermaid
 flowchart LR
-  you["You<br>browser extension, phone"]
-  reddit["Reddit<br>feeds"]
-  subgraph host["Docker host"]
-    karakeep["Karakeep"]
-    sync["karakeep-trilium-sync"]
-    trilium["Trilium"]
-  end
+  you@{ img: "icons/you.svg", label: "You<br>browser, phone", pos: "b", w: 48, h: 48, constraint: "on" }
+  karakeep@{ img: "icons/karakeep.svg", label: "Karakeep", pos: "b", w: 48, h: 48, constraint: "on" }
+  reddit@{ img: "icons/reddit.svg", label: "Reddit feeds", pos: "b", w: 48, h: 48, constraint: "on" }
+  sync@{ img: "logo.svg", label: "karakeep-trilium-sync", pos: "b", w: 64, h: 64, constraint: "on" }
+  trilium@{ img: "icons/trilium.svg", label: "Trilium", pos: "b", w: 48, h: 48, constraint: "on" }
   you -- "save + tag" --> karakeep
   karakeep -- "tagged bookmarks" --> sync
   reddit -. "Reddit posts" .-> sync
   sync -- "new notes" --> trilium
-  classDef accent fill:#ddd3fd,stroke:#6d28d9,color:#18162f,stroke-width:1.5px
-  class sync accent
 ```
 
 !!! tip "Keeping an LLM wiki in Trilium?"

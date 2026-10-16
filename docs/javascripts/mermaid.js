@@ -22,6 +22,15 @@ const extraCSS = `
   .cluster .nodeLabel, .cluster-label span {
     color: var(--md-mermaid-sequence-box-fg-color) !important;
   }
+  /* Icon nodes (img shapes): just the icon and its caption, no box. */
+  .image-shape rect, .image-shape path {
+    fill: none !important;
+    stroke: none !important;
+  }
+  .image-shape .label, .image-shape .label *, .image-shape .labelBkg {
+    background: transparent !important;
+    color: var(--md-mermaid-node-fg-color) !important;
+  }
 `;
 
 const initialize = mermaid.initialize.bind(mermaid);
