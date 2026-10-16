@@ -1,0 +1,257 @@
+/* Karakeep meets Trilium. From Karakeep: the near-black navy of its buttons
+   and logo, and the violet-to-pink of its headline, for links and hover. From
+   Trilium: the flower's leaf green for notes and its petal orange for focus.
+   The header stays quiet: white in light mode, a violet-tinted charcoal in dark. */
+
+:root > * {
+  --ks-ink: #18162f;
+  --ks-violet: #6d28d9;
+  --ks-pink: #be185d;
+  --ks-leaf: #2f7a27;
+  --ks-petal: #c2610f;
+  --ks-mist: #f4f2fb;
+
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #ffffff;
+  --md-primary-bg-color: var(--ks-ink);
+  --md-primary-bg-color--light: #4b4867;
+  --md-accent-fg-color: var(--ks-pink);
+  --md-typeset-a-color: var(--ks-violet);
+  --md-typeset-color: var(--ks-ink);
+  --md-footer-bg-color: var(--ks-ink);
+  --md-footer-bg-color--dark: #110f22;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 248;
+  --ks-ink: #ecebf5;
+  --ks-violet: #b9a2fb;
+  --ks-pink: #f472b6;
+  --ks-leaf: #7cc36a;
+  --ks-petal: #f0a35e;
+  --ks-mist: hsla(248, 18%, 18%, 1);
+
+  --md-default-bg-color: hsla(248, 18%, 10%, 1);
+  --md-primary-fg-color: hsla(248, 18%, 10%, 1);
+  --md-primary-fg-color--light: hsla(248, 18%, 10%, 1);
+  --md-primary-fg-color--dark: hsla(248, 18%, 10%, 1);
+  --md-primary-bg-color: var(--ks-ink);
+  --md-typeset-a-color: var(--ks-violet);
+  --md-typeset-color: hsla(248, 12%, 88%, 1);
+  --md-footer-bg-color: hsla(248, 20%, 7%, 1);
+  --md-footer-bg-color--dark: hsla(248, 20%, 5%, 1);
+}
+
+/* Header: a hairline instead of a coloured bar. */
+.md-header {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: none;
+}
+.md-header[data-md-state="shadow"],
+.md-header--shadow {
+  box-shadow: 0 1px 0 var(--md-default-fg-color--lightest);
+}
+.md-search__input {
+  background-color: var(--ks-mist);
+  color: var(--ks-ink);
+}
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--md-default-fg-color--light);
+}
+.md-search__input:hover {
+  background-color: var(--ks-mist);
+}
+.md-header__button.md-logo img {
+  height: 1.6rem;
+}
+
+/* The header already names the site; drop the repeat atop the sidebar. */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title {
+    display: none;
+  }
+}
+
+/* Reading rhythm: Atkinson reads best a touch larger and looser. */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.md-typeset h1 {
+  color: var(--ks-ink);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.md-typeset h2 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible,
+.md-typeset .md-button:focus-visible {
+  outline: 2px solid var(--ks-petal);
+  outline-offset: 2px;
+}
+
+/* Home page hero: the headline beside the merged mark, which sits in a soft
+   glow of Karakeep violet and Trilium leaf. */
+.ks-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 0 0.5rem;
+}
+.md-typeset .ks-hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.08;
+  margin: 0 0 0.45em;
+  max-width: 12em;
+  text-wrap: balance;
+}
+.ks-hero__lead {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 32em;
+  color: var(--md-default-fg-color--light);
+}
+.ks-hero__mark {
+  position: relative;
+  width: 13rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.ks-hero__mark::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 65%, color-mix(in srgb, var(--ks-violet) 14%, transparent), transparent 60%),
+    radial-gradient(circle at 70% 25%, color-mix(in srgb, var(--ks-leaf) 18%, transparent), transparent 55%);
+  filter: blur(8px);
+}
+.md-typeset .ks-hero__mark img {
+  position: relative;
+  width: 78%;
+  margin: 0;
+}
+.md-typeset .ks-hero .md-button {
+  margin: 0.3rem 0.4rem 0.3rem 0;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .ks-hero {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .ks-hero__mark {
+    order: -1;
+    width: 6.5rem;
+  }
+  .md-typeset .ks-hero h1 {
+    font-size: 1.85rem;
+  }
+}
+
+/* Buttons: Karakeep's near-black primary, outlined secondary. */
+.md-typeset .md-button {
+  color: var(--ks-ink);
+  border-color: var(--md-default-fg-color--lighter);
+  border-width: 1px;
+  border-radius: 0.5rem;
+}
+.md-typeset .md-button--primary {
+  background-color: var(--ks-ink);
+  border-color: var(--ks-ink);
+  color: var(--md-default-bg-color);
+}
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus {
+  background-color: var(--ks-mist);
+  border-color: var(--ks-violet);
+  color: var(--ks-violet);
+}
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus {
+  background-color: var(--ks-violet);
+  border-color: var(--ks-violet);
+  color: #ffffff;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover,
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:focus {
+  color: #18162f;
+}
+
+/* Notes take Trilium's leaf green, tips Karakeep's violet. */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: var(--ks-leaf);
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary {
+  background-color: color-mix(in srgb, var(--ks-leaf) 10%, transparent);
+}
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before {
+  background-color: var(--ks-leaf);
+}
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: var(--ks-violet);
+}
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: color-mix(in srgb, var(--ks-violet) 10%, transparent);
+}
+.md-typeset .tip > .admonition-title::before,
+.md-typeset .tip > summary::before {
+  background-color: var(--ks-violet);
+}
+
+/* Content tabs: the active tab underlined in violet. */
+.md-typeset .tabbed-labels > label {
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .tabbed-labels > label:hover {
+  color: var(--ks-pink);
+}
+.md-typeset .tabbed-set > input:checked + label,
+.md-typeset .tabbed-labels > label.tabbed-label--active {
+  color: var(--ks-violet);
+}
+.md-typeset .tabbed-labels::before {
+  background: var(--ks-violet);
+}
+
+/* Mermaid diagrams: neutral boxes and slate arrows. Material re-reads these
+   on theme toggle. */
+:root > * {
+  --md-mermaid-font-family: var(--md-text-font-family), sans-serif;
+  --md-mermaid-edge-color: #6b6987;
+  --md-mermaid-node-bg-color: #ffffff;
+  --md-mermaid-node-fg-color: var(--ks-ink);
+  --md-mermaid-label-bg-color: var(--md-default-bg-color);
+  --md-mermaid-label-fg-color: #4b4867;
+  --md-mermaid-sequence-actor-bg-color: #ffffff;
+  --md-mermaid-sequence-actor-fg-color: var(--ks-ink);
+  --md-mermaid-sequence-actor-border-color: #d6d3e6;
+  --md-mermaid-sequence-actor-line-color: #d6d3e6;
+  --md-mermaid-sequence-box-bg-color: var(--ks-mist);
+  --md-mermaid-sequence-box-fg-color: var(--ks-violet);
+  --md-mermaid-sequence-number-bg-color: var(--ks-violet);
+  --md-mermaid-sequence-number-fg-color: #ffffff;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-mermaid-edge-color: #9d9ab8;
+  --md-mermaid-node-bg-color: hsla(248, 18%, 16%, 1);
+  --md-mermaid-label-fg-color: #c3c0d9;
+  --md-mermaid-sequence-actor-bg-color: hsla(248, 18%, 16%, 1);
+  --md-mermaid-sequence-actor-border-color: hsla(248, 12%, 32%, 1);
+  --md-mermaid-sequence-actor-line-color: hsla(248, 12%, 28%, 1);
+  --md-mermaid-sequence-number-fg-color: #18162f;
+}
